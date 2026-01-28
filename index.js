@@ -1,5 +1,6 @@
 import express from 'express';
 const app = express();
+import notFound from './src/middlewares/not-found.js';
 
 const products = [
     {
@@ -40,20 +41,20 @@ const products = [
     }
 ]
 
+app.use((request, response, next) => {
+    response.json( {
+        message: "Hola, este es mi primer API REST" 
+    })
+    next();
+});
+
+app.use(notFound);
+
 app.get('/', (req, res) => {
     res.json({
         message: "Bienvenidos a mi API REST"
     });
 });
-
-app.use((request, response, next) => {
-    response.json( {
-        message: "Hola, este es mi primer API REST" 
-    })
-})
-
-import notFound from './src/middlewares/not-found.js';
-app.use(notFound);
 
 const PORT = 3000;
 

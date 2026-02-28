@@ -1,4 +1,4 @@
-# API REST c/ Node.JS + Firebase
+# API REST w/ Node.JS + Firebase
 ## Instalación 
 
 ``` shell
